@@ -1,0 +1,46 @@
+version: '2.2'
+
+networks:
+  catalogo_network:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.5.0/24
+          gateway: 192.168.5.1
+
+
+services:
+
+    node: 
+      image: rafaeldalarosa/node-api-v1:latest
+      container_name: node_api
+      networks: 
+        catalogo_network:
+          ipv4_address: 192.168.5.10
+      restart: always
+      depends_on:
+        - mysql
+
+    mysql:
+      image: rafaeldalarosa/mysql-v1:latest
+      container_name: database
+      networks:
+        catalogo_network:
+          ipv4_address: 192.168.5.15
+      restart: always
+      tty: true
+      volumes:
+       - ./mysql:/var/lib/mysql
+
+    web: 
+      image: rafaeldalarosa/web-v1:latest
+      container_name: web
+      networks: 
+        catalogo_network:
+          ipv4_address: 192.168.5.5
+      ports:
+       - "8080:80"
+      restart: always
+      depends_on:
+        - mysql

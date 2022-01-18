@@ -1,0 +1,22 @@
+{
+  "name": "catalago_artesian_api",
+  "version": "1.0.0",
+  "description": "API for web and mobile aplications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon loader.js"
+  },
+  "keywords": [
+    "node",
+    "API"
+  ],
+  "author": "Rafael Dalarosa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.3.0",
+    "nodemon": "^2.0.12",
+    "package.json": "^2.0.1"
+  }
+}
