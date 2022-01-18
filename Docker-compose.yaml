@@ -32,15 +32,3 @@ services:
       tty: true
       volumes:
        - ./mysql:/var/lib/mysql
-
-    web: 
-      image: rafaeldalarosa/web-v1:latest
-      container_name: web
-      networks: 
-        catalogo_network:
-          ipv4_address: 192.168.5.5
-      ports:
-       - "8080:80"
-      restart: always
-      depends_on:
-        - mysql
