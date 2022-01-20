@@ -10,10 +10,10 @@ function getAll(req, res, next) {
     .then(([rows]) => {
         let listofnames = [];
         for (let i = 0; i< rows.length; i++){
-            listofnames.push(rows[0][0].name)
+            listofnames.push(rows[i].name)
         }
 
-        const html = ejs.renderFile(__dirname + "template.ejs",
+        const html = ejs.renderFile(__dirname + "/template.ejs",
         {name: listofnames}); 
 
         res.send(html);

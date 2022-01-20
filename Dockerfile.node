@@ -5,9 +5,9 @@ RUN apt-get install htop -y
 RUN apt-get install net-tools -y
 RUN apt-get install git -y
 
-RUN git clone https://RafaelDalarosa:Lostplanet123!@github.com/RafaelDalarosa/Codeeducation2
+RUN git clone https://RafaelDalarosa:fx202660!@github.com/RafaelDalarosa/Codeeducation2
 
-WORKDIR /catalago_artesian_api
+WORKDIR /Codeeducation2
 
 RUN npm install package
 
@@ -16,9 +16,8 @@ ENV HOST=192.168.5.15
 ENV USER=root
 ENV PORT=3306
 ENV PASSWORD=yt3BPx=Kgjb-~n^E
-ENV DATABASE=db_catalogo
+ENV DATABASE=db
 ENV HTTP=3000
-ENV HTTPS=3001
 ENV IP=192.168.5.10
 
 EXPOSE  3000
