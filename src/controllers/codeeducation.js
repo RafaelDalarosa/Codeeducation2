@@ -5,19 +5,19 @@ const ejs = require('ejs');
 
 router.get('/', getAll);
 
-function getAll(req, res, next) {
-    methods.getAll()
-    .then(([rows]) => {
-        let listofnames = [];
-        for (let i = 0; i< rows.length; i++){
-            listofnames.push(rows[i].name)
-        }
+async function getAll(req, res, next) {
 
-        const html = ejs.renderFile(__dirname + "/template.ejs",
-        {name: listofnames}); 
+    let [listofnames] = await methods.getAll();
+        
+    for (let i = 0; i< rows.length; i++){
+        listofnames.push(rows[i].name);
+    }
 
-        res.send(html);
-    })
+    const html = await ejs.renderFile(__dirname + "/template.ejs",
+    {name: listofnames}); 
+
+    res.status(200).send(html);
+    
 }
 
 module.exports = router;
