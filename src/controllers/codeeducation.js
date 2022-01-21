@@ -7,10 +7,11 @@ router.get('/', getAll);
 
 async function getAll(req, res, next) {
 
-    let [listofnames] = await methods.getAll();
+    let listofnames = await methods.getAll();
+    listofnames = listofnames[0];
         
-    for (let i = 0; i< rows.length; i++){
-        listofnames.push(rows[i].name);
+    for (let i = 0; i< listofnames.length; i++){
+        listofnames.push(listofnames[i].name);
     }
 
     const html = await ejs.renderFile(__dirname + "/template.ejs",
