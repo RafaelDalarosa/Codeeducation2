@@ -87,6 +87,10 @@ Access Docker Website and choose you OS https://www.docker.com/get-started
    ```sh
    docker-compose up
    ```
+3. Open Browser to test
+   ```sh
+   http://localhost:8080
+   ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
